@@ -9,6 +9,14 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  String text = 'simple text';
+
+  void changeText({required String todoText}) {
+    setState(() {
+      text = '$todoText';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +34,9 @@ class _MainScreenState extends State<MainScreen> {
                   builder: (context) {
                     return Container(
                       height: 200,
-                      child: AddTodo(),
+                      child: AddTodo(
+                      changeText: changeText,
+                      ),
                     );
                   });
             },
@@ -37,7 +47,9 @@ class _MainScreenState extends State<MainScreen> {
           )
         ],
       ),
-      body: Container(),
+      body: Container(
+        child: Text('$text'),
+      ),
     );
   }
 }
