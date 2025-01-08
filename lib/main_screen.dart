@@ -30,15 +30,19 @@ class _MainScreenState extends State<MainScreen> {
           InkWell(
             onTap: () {
               showModalBottomSheet(
-                  context: context,
-                  builder: (context) {
-                    return Container(
-                      height: 200,
+                context: context,
+                builder: (context) {
+                  return Padding(
+                    padding: MediaQuery.of(context).viewInsets,
+                    child: Container(
+                      height: 250,
                       child: AddTodo(
-                      changeText: changeText,
+                        changeText: changeText,
                       ),
-                    );
-                  });
+                    ),
+                  );
+                },
+              );
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -47,9 +51,7 @@ class _MainScreenState extends State<MainScreen> {
           )
         ],
       ),
-      body: Container(
-        child: Text('$text'),
-      ),
+      body: Text('$text'),
     );
   }
 }
