@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AddTodo extends StatefulWidget {
-  final void Function({required String todoText}) changeText;
+  final void Function({required String todoText}) addTodo;
 
-  const AddTodo({super.key, required this.changeText});
+  const AddTodo({super.key, required this.addTodo});
 
   @override
   State<AddTodo> createState() => _AddTodoState();
@@ -31,7 +31,7 @@ class _AddTodoState extends State<AddTodo> {
               onPressed: () {
                 print(todoText.text);
 
-                widget.changeText(todoText: todoText.text);
+                widget.addTodo(todoText: todoText.text);
                 todoText.text = "";
               },
               child: Text('Add'))
