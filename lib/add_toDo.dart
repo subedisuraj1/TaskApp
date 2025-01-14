@@ -29,9 +29,9 @@ class _AddTodoState extends State<AddTodo> {
           ),
           ElevatedButton(
               onPressed: () {
-                print(todoText.text);
-
-                widget.addTodo(todoText: todoText.text);
+                if (todoText.text.isNotEmpty) {
+                  widget.addTodo(todoText: todoText.text);
+                }
                 todoText.text = "";
               },
               child: Text('Add'))
